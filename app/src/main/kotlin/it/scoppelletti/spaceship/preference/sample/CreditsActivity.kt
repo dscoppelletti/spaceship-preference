@@ -13,18 +13,22 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.webkit.WebViewAssetLoader
 import androidx.webkit.WebViewClientCompat
 import it.scoppelletti.spaceship.app.tryFinish
-import kotlinx.android.synthetic.main.credits_activity.*
+import it.scoppelletti.spaceship.preference.sample.databinding.CreditsActivityBinding
 
 class CreditsActivity: AppCompatActivity() {
+
+    private lateinit var binding: CreditsActivityBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         val actionBar: ActionBar
         val assetLoader: WebViewAssetLoader
 
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.credits_activity)
 
-        setSupportActionBar(toolbar)
+        binding = CreditsActivityBinding.inflate(layoutInflater)
+        setContentView(binding.root)
+
+        setSupportActionBar(binding.toolbar)
         actionBar = supportActionBar!!
         actionBar.setDisplayHomeAsUpEnabled(true)
 
@@ -33,7 +37,7 @@ class CreditsActivity: AppCompatActivity() {
                         WebViewAssetLoader.AssetsPathHandler(this))
                 .build()
 
-        webView.webViewClient = object : WebViewClientCompat() {
+        binding.webView.webViewClient = object : WebViewClientCompat() {
 
             override fun shouldInterceptRequest(
                     view: WebView?,
@@ -56,7 +60,7 @@ class CreditsActivity: AppCompatActivity() {
             }
         }
 
-        webView.loadUrl(
+        binding.webView.loadUrl(
                 "https://appassets.androidplatform.net/assets/credits.html")
     }
 

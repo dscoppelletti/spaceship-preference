@@ -24,7 +24,7 @@ import androidx.annotation.UiThread
 import androidx.appcompat.app.ActionBar
 import androidx.appcompat.app.AppCompatActivity
 import it.scoppelletti.spaceship.app.tryFinish
-import kotlinx.android.synthetic.main.it_scoppelletti_pref_settings_activity.*
+import it.scoppelletti.spaceship.preference.databinding.ItScoppellettiPrefSettingsActivityBinding
 
 /**
  * Activity hosting a settings fragment.
@@ -34,13 +34,18 @@ import kotlinx.android.synthetic.main.it_scoppelletti_pref_settings_activity.*
 @UiThread
 public abstract class AbstractSettingsActivity : AppCompatActivity() {
 
+    private lateinit var binding: ItScoppellettiPrefSettingsActivityBinding
+
     override fun onCreate(savedInstanceState: Bundle?) {
         val actionBar: ActionBar
 
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.it_scoppelletti_pref_settings_activity)
 
-        setSupportActionBar(toolbar)
+        binding = ItScoppellettiPrefSettingsActivityBinding.inflate(
+                layoutInflater)
+        setContentView(binding.root)
+
+        setSupportActionBar(binding.toolbar)
         actionBar = supportActionBar!!
         actionBar.setDisplayHomeAsUpEnabled(true)
 
