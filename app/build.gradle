@@ -59,7 +59,6 @@ dependencies {
     implementation 'androidx.appcompat:appcompat'
     implementation 'androidx.fragment:fragment-ktx'
     implementation 'androidx.preference:preference-ktx'
-    implementation 'androidx.webkit:webkit'
     implementation "com.google.android.gms:play-services-oss-licenses:${oss_version}"
     implementation 'com.google.android.material:material'
     implementation 'com.google.dagger:dagger'

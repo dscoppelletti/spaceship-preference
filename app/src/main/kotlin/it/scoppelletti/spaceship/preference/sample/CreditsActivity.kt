@@ -2,66 +2,34 @@
 
 package it.scoppelletti.spaceship.preference.sample
 
-import android.content.Intent
-import android.net.Uri
 import android.os.Bundle
 import android.view.MenuItem
-import android.webkit.WebResourceResponse
-import android.webkit.WebView
 import androidx.appcompat.app.ActionBar
 import androidx.appcompat.app.AppCompatActivity
-import androidx.webkit.WebViewAssetLoader
-import androidx.webkit.WebViewClientCompat
 import it.scoppelletti.spaceship.app.tryFinish
-import it.scoppelletti.spaceship.preference.sample.databinding.CreditsActivityBinding
+import it.scoppelletti.spaceship.html.app.HtmlViewFragment
+import it.scoppelletti.spaceship.preference.sample.databinding.SettingsActivityBinding
 
-class CreditsActivity: AppCompatActivity() {
+class CreditsActivity : AppCompatActivity() {
 
-    private lateinit var binding: CreditsActivityBinding
+    private lateinit var binding: SettingsActivityBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         val actionBar: ActionBar
-        val assetLoader: WebViewAssetLoader
 
         super.onCreate(savedInstanceState)
 
-        binding = CreditsActivityBinding.inflate(layoutInflater)
+        binding = SettingsActivityBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
         setSupportActionBar(binding.toolbar)
         actionBar = supportActionBar!!
         actionBar.setDisplayHomeAsUpEnabled(true)
 
-        assetLoader = WebViewAssetLoader.Builder()
-                .addPathHandler("/assets/",
-                        WebViewAssetLoader.AssetsPathHandler(this))
-                .build()
-
-        binding.webView.webViewClient = object : WebViewClientCompat() {
-
-            override fun shouldInterceptRequest(
-                    view: WebView?,
-                    url: String?
-            ): WebResourceResponse? {
-                return url?.let {
-                    assetLoader.shouldInterceptRequest(Uri.parse(it))
-                }
-            }
-
-            override fun shouldOverrideUrlLoading(
-                    view: WebView?,
-                    url: String?
-            ): Boolean {
-                Intent(Intent.ACTION_VIEW, Uri.parse(url)).apply {
-                    startActivity(this)
-                }
-
-                return true
-            }
-        }
-
-        binding.webView.loadUrl(
-                "https://appassets.androidplatform.net/assets/credits.html")
+        supportFragmentManager.beginTransaction()
+                .replace(R.id.contentFrame, HtmlViewFragment.newInstance(
+                        HtmlViewFragment.URL_ASSET + "credits.html"))
+                .commit()
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
@@ -75,3 +43,4 @@ class CreditsActivity: AppCompatActivity() {
         return super.onOptionsItemSelected(item)
     }
 }
+

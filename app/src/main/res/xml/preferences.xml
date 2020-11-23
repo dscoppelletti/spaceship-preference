@@ -76,8 +76,9 @@
             android:key="it.scoppelletti.spaceship.preference.sample.help"
             android:title="@string/it_scoppelletti_pref_cmd_help"
             android:icon="@drawable/ic_pref_help"
-            android:persistent="false">
-            <intent android:targetClass="it.scoppelletti.spaceship.html.app.HtmlViewerActivity"
+            android:persistent="false"
+            android:enabled="false">
+            <intent android:targetClass="it.scoppelletti.spaceship.preference.sample.HelpActivity"
                 android:targetPackage="it.scoppelletti.spaceship.preference.sample" />
         </androidx.preference.Preference>
         <androidx.preference.Preference
@@ -94,7 +95,7 @@
             android:icon="@drawable/ic_pref_about"
             android:persistent="false"
             android:enabled="false">
-            <intent android:targetClass="it.scoppelletti.spaceship.html.app.HtmlViewerActivity"
+            <intent android:targetClass="it.scoppelletti.spaceship.preference.sample.AboutActivity"
                 android:targetPackage="it.scoppelletti.spaceship.preference.sample" />
         </androidx.preference.Preference>
         <androidx.preference.Preference
@@ -103,7 +104,7 @@
             android:icon="@drawable/ic_pref_privacy"
             android:persistent="false"
             android:enabled="false">
-            <intent android:targetClass="it.scoppelletti.spaceship.html.app.HtmlViewerActivity"
+            <intent android:targetClass="it.scoppelletti.spaceship.preference.sample.PrivacyActivity"
                 android:targetPackage="it.scoppelletti.spaceship.preference.sample" />
         </androidx.preference.Preference>
         <androidx.preference.Preference

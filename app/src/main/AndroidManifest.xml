@@ -18,7 +18,7 @@
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
-        <activity android:name=".CreditsActivity"
+        <activity android:name="it.scoppelletti.spaceship.preference.sample.CreditsActivity"
             android:label="@string/it_scoppelletti_pref_cmd_credits">
         </activity>
     </application>
