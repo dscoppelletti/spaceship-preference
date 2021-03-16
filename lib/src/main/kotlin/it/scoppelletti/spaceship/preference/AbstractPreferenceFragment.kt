@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2018 Dario Scoppelletti, <http://www.scoppelletti.it/>.
+ * Copyright (C) 2018-2021 Dario Scoppelletti, <http://www.scoppelletti.it/>.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -41,12 +41,13 @@ public abstract class AbstractPreferenceFragment : PreferenceFragmentCompat() {
 
     private lateinit var appMessages: AppMessages
 
-    override fun onActivityCreated(savedInstanceState: Bundle?) {
-        super.onActivityCreated(savedInstanceState)
+    override fun onViewStateRestored(savedInstanceState: Bundle?) {
+        super.onViewStateRestored(savedInstanceState)
 
         appMessages = requireActivity().appComponent().appMessages()
     }
 
+    @Suppress("deprecation")
     override fun onDisplayPreferenceDialog(preference: Preference?) {
         val fragment: CustomPreferenceDialogFragment
         val fragmentMgr: FragmentManager
@@ -60,6 +61,8 @@ public abstract class AbstractPreferenceFragment : PreferenceFragmentCompat() {
         if (preference is CustomDialogPreference) {
             fragment = CustomPreferenceDialogFragment.newInstance(
                     preference.key)
+            // Deprecated by API Changes in androidx.fragment.app.Fragment 1.3.0
+            // in favor of Fragment Result API
             fragment.setTargetFragment(this, 0)
             fragment.show(fragmentMgr,
                     AbstractPreferenceFragment.DIALOG_FRAGMENT_TAG)

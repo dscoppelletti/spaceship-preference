@@ -1,8 +1,8 @@
 apply plugin: 'com.android.application'
 apply plugin: 'com.google.android.gms.oss-licenses-plugin'
 apply plugin: 'kotlin-android'
-apply plugin: 'kotlin-android-extensions'
 apply plugin: 'kotlin-kapt'
+apply plugin: 'kotlin-parcelize'
 apply plugin: 'it.scoppelletti.spaceship.android-app'
 
 android {
@@ -39,10 +39,6 @@ android {
     sourceSets {
         main.java.srcDirs += 'src/main/kotlin'
     }
-}
-
-androidExtensions {
-    features = ['parcelize']
 }
 
 configurations {
