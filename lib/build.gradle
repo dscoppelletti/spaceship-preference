@@ -33,6 +33,7 @@ android {
         }
     }
     compileOptions {
+        coreLibraryDesugaringEnabled true
         sourceCompatibility JavaVersion.VERSION_1_8
         targetCompatibility JavaVersion.VERSION_1_8
     }
@@ -54,6 +55,7 @@ configurations {
     bom
     api.extendsFrom(bom)
     kapt.extendsFrom(bom)
+    coreLibraryDesugaring.extendsFrom(bom)
 }
 
 dependencies {
@@ -68,4 +70,5 @@ dependencies {
     api 'it.scoppelletti.spaceship:spaceship'
     api 'it.scoppelletti.spaceship:spaceship-stdlib'
     api "org.jetbrains.kotlin:kotlin-stdlib-jdk8:${kotlin_version}"
+    coreLibraryDesugaring 'com.android.tools:desugar_jdk_libs'
 }
