@@ -1,9 +1,12 @@
-apply plugin: 'com.android.application'
-apply plugin: 'com.google.android.gms.oss-licenses-plugin'
-apply plugin: 'kotlin-android'
-apply plugin: 'kotlin-kapt'
-apply plugin: 'kotlin-parcelize'
-apply plugin: 'it.scoppelletti.spaceship.android-app'
+
+plugins {
+    id 'com.android.application'
+    id 'com.google.android.gms.oss-licenses-plugin'
+    id 'kotlin-android'
+    id 'kotlin-kapt'
+    id 'kotlin-parcelize'
+    id 'it.scoppelletti.spaceship.android-app'
+}
 
 android {
     compileSdkVersion sdk_target
