@@ -99,7 +99,7 @@
                 android:targetPackage="it.scoppelletti.spaceship.preference.sample" />
         </androidx.preference.Preference>
         <androidx.preference.Preference
-            android:key="it.scoppelletti.spaceship.preference.sample.about"
+            android:key="it.scoppelletti.spaceship.preference.sample.privacy"
             android:title="@string/it_scoppelletti_pref_cmd_privacy"
             android:icon="@drawable/ic_pref_privacy"
             android:persistent="false"
