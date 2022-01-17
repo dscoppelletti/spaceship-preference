@@ -4,7 +4,6 @@ import android.app.Application
 import it.scoppelletti.spaceship.html.inject.HtmlComponent
 import it.scoppelletti.spaceship.html.inject.HtmlComponentProvider
 import it.scoppelletti.spaceship.inject.AppComponent
-import it.scoppelletti.spaceship.inject.AppComponentProvider
 import it.scoppelletti.spaceship.inject.StdlibComponent
 import it.scoppelletti.spaceship.preference.sample.inject.DaggerSampleComponent
 import it.scoppelletti.spaceship.preference.sample.inject.SampleComponent

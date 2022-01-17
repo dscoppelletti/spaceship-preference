@@ -33,7 +33,7 @@ class SettingsActivity : AppCompatActivity() {
         OssLicensesMenuActivity.setActivityTitle(getString(R.string.cmd_oss))
     }
 
-    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+    override fun onCreateOptionsMenu(menu: Menu): Boolean {
         menuInflater.inflate(R.menu.settings, menu)
         return true
     }
