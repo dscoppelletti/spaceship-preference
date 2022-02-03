@@ -32,15 +32,13 @@ import androidx.preference.PreferenceDialogFragmentCompat
 @UiThread
 public class CustomPreferenceDialogFragment : PreferenceDialogFragmentCompat() {
 
-    override fun onBindDialogView(view: View?) {
+    override fun onBindDialogView(view: View) {
         val pref: CustomDialogPreference?
 
         super.onBindDialogView(view)
 
-        if (view != null) {
-            pref = preference as? CustomDialogPreference
-            pref?.doBindDialogView(view)
-        }
+        pref = preference as? CustomDialogPreference
+        pref?.doBindDialogView(view)
     }
 
     override fun onDialogClosed(positiveResult: Boolean) {

@@ -48,7 +48,7 @@ public abstract class AbstractPreferenceFragment : PreferenceFragmentCompat() {
     }
 
     @Suppress("deprecation")
-    override fun onDisplayPreferenceDialog(preference: Preference?) {
+    override fun onDisplayPreferenceDialog(preference: Preference) {
         val fragment: CustomPreferenceDialogFragment
         val fragmentMgr: FragmentManager
 
@@ -105,7 +105,7 @@ public abstract class AbstractPreferenceFragment : PreferenceFragmentCompat() {
         }
 
         if (config == null) {
-            intent = preference.intent
+            intent = preference.intent!!
         } else {
             intent = Intent(preference.intent)
             config.invoke(intent)
