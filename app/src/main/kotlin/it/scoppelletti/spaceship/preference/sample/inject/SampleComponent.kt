@@ -12,7 +12,7 @@ import it.scoppelletti.spaceship.inject.StdlibComponent
 import javax.inject.Singleton
 
 @Singleton
-@Component(modules = [ HtmlModule::class ])
+@Component
 interface SampleComponent : AppComponent, HtmlComponent, StdlibComponent {
 
     @Component.Factory

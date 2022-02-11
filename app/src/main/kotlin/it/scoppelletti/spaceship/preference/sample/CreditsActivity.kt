@@ -8,18 +8,18 @@ import androidx.appcompat.app.ActionBar
 import androidx.appcompat.app.AppCompatActivity
 import it.scoppelletti.spaceship.app.tryFinish
 import it.scoppelletti.spaceship.html.app.HtmlViewFragment
-import it.scoppelletti.spaceship.preference.sample.databinding.SettingsActivityBinding
+import it.scoppelletti.spaceship.preference.sample.databinding.CreditsActivityBinding
 
 class CreditsActivity : AppCompatActivity() {
 
-    private lateinit var binding: SettingsActivityBinding
+    private lateinit var binding: CreditsActivityBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         val actionBar: ActionBar
 
         super.onCreate(savedInstanceState)
 
-        binding = SettingsActivityBinding.inflate(layoutInflater)
+        binding = CreditsActivityBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
         setSupportActionBar(binding.toolbar)
