@@ -9,11 +9,12 @@ plugins {
 }
 
 android {
-    compileSdkVersion sdk_target
+    namespace 'it.scoppelletti.spaceship.preference.sample'
+    compileSdk sdk_target
     defaultConfig {
-        applicationId "it.scoppelletti.spaceship.preference.sample"
-        minSdkVersion sdk_min
-        targetSdkVersion sdk_target
+        applicationId 'it.scoppelletti.spaceship.preference.sample'
+        minSdk sdk_min
+        targetSdk sdk_target
         versionCode 1
         versionName '1.0.0'
         vectorDrawables.useSupportLibrary = true
@@ -40,9 +41,6 @@ android {
     kotlinOptions {
         jvmTarget = JavaVersion.VERSION_1_8.toString()
     }
-    sourceSets {
-        main.java.srcDirs += 'src/main/kotlin'
-    }
 }
 
 configurations {
@@ -53,7 +51,8 @@ configurations {
 }
 
 dependencies {
-    bom platform(BOM)
+    bom platform(KOTLIN_BOM)
+    bom platform(SPACESHIP_BOM)
     implementation project(':lib')
     implementation 'androidx.activity:activity-ktx'
     implementation 'androidx.annotation:annotation'
@@ -67,7 +66,6 @@ dependencies {
     implementation 'it.scoppelletti.spaceship:spaceship'
     implementation 'it.scoppelletti.spaceship:spaceship-html'
     implementation 'it.scoppelletti.spaceship:spaceship-stdlib'
-    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk8:${kotlin_version}"
     runtimeOnly 'com.noveogroup.android:android-logger'
     coreLibraryDesugaring 'com.android.tools:desugar_jdk_libs'
 }
