@@ -14,9 +14,6 @@
  * limitations under the License.
  */
 
-@file:Suppress("JoinDeclarationAndAssignment", "RemoveRedundantQualifierName",
-        "RedundantVisibilityModifier")
-
 package it.scoppelletti.spaceship.preference
 
 import android.os.Bundle
@@ -33,18 +30,14 @@ import androidx.preference.PreferenceDialogFragmentCompat
 public class CustomPreferenceDialogFragment : PreferenceDialogFragmentCompat() {
 
     override fun onBindDialogView(view: View) {
-        val pref: CustomDialogPreference?
-
         super.onBindDialogView(view)
 
-        pref = preference as? CustomDialogPreference
+        val pref = preference as? CustomDialogPreference
         pref?.doBindDialogView(view)
     }
 
     override fun onDialogClosed(positiveResult: Boolean) {
-        val pref: CustomDialogPreference?
-
-        pref = preference as? CustomDialogPreference
+        val pref = preference as? CustomDialogPreference
         pref?.doDialogClosed(positiveResult)
     }
 
@@ -57,10 +50,8 @@ public class CustomPreferenceDialogFragment : PreferenceDialogFragmentCompat() {
          * @return     The new object.
          */
         public fun newInstance(key: String): CustomPreferenceDialogFragment {
-            val args: Bundle
-
-            args = Bundle().apply {
-                putString(PreferenceDialogFragmentCompat.ARG_KEY, key)
+            val args = Bundle().apply {
+                putString(ARG_KEY, key)
             }
 
             return CustomPreferenceDialogFragment().apply {

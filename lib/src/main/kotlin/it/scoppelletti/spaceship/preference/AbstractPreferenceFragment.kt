@@ -14,16 +14,12 @@
  * limitations under the License.
  */
 
-@file:Suppress("JoinDeclarationAndAssignment", "RemoveRedundantQualifierName",
-        "RedundantVisibilityModifier")
-
 package it.scoppelletti.spaceship.preference
 
 import android.content.Intent
 import android.os.Bundle
 import androidx.annotation.UiThread
 import androidx.appcompat.app.AppCompatActivity
-import androidx.fragment.app.FragmentManager
 import androidx.preference.Preference
 import androidx.preference.PreferenceFragmentCompat
 import it.scoppelletti.spaceship.ApplicationException
@@ -50,11 +46,9 @@ public abstract class AbstractPreferenceFragment : PreferenceFragmentCompat() {
     @Suppress("deprecation")
     override fun onDisplayPreferenceDialog(preference: Preference) {
         val fragment: CustomPreferenceDialogFragment
-        val fragmentMgr: FragmentManager
 
-        fragmentMgr = parentFragmentManager
-        if (fragmentMgr.findFragmentByTag(AbstractPreferenceFragment
-                        .DIALOG_FRAGMENT_TAG) != null) {
+        val fragmentMgr = parentFragmentManager
+        if (fragmentMgr.findFragmentByTag(DIALOG_FRAGMENT_TAG) != null) {
             return
         }
 
@@ -64,8 +58,7 @@ public abstract class AbstractPreferenceFragment : PreferenceFragmentCompat() {
             // Deprecated by API Changes in androidx.fragment.app.Fragment 1.3.0
             // in favor of Fragment Result API
             fragment.setTargetFragment(this, 0)
-            fragment.show(fragmentMgr,
-                    AbstractPreferenceFragment.DIALOG_FRAGMENT_TAG)
+            fragment.show(fragmentMgr, DIALOG_FRAGMENT_TAG)
         } else {
             super.onDisplayPreferenceDialog(preference)
         }
@@ -97,7 +90,6 @@ public abstract class AbstractPreferenceFragment : PreferenceFragmentCompat() {
             config: ((Intent) -> Unit)?): Boolean
     {
         val intent: Intent
-        val activity: AppCompatActivity
         val err: ApplicationException
 
         if (preference.intent == null) {
@@ -111,7 +103,7 @@ public abstract class AbstractPreferenceFragment : PreferenceFragmentCompat() {
             config.invoke(intent)
         }
 
-        activity = requireActivity() as AppCompatActivity
+        val activity = requireActivity() as AppCompatActivity
         try {
             activity.startActivity(intent)
         } catch (ex: RuntimeException) {
@@ -132,7 +124,7 @@ public abstract class AbstractPreferenceFragment : PreferenceFragmentCompat() {
         /**
          * Tag.
          */
-        public const val DIALOG_FRAGMENT_TAG =
+        public const val DIALOG_FRAGMENT_TAG: String =
                 "android.support.v7.preference.PreferenceFragment.DIALOG"
         // - Support library 27.1.1
         // In the base class this constant is private.

@@ -55,7 +55,6 @@ class SettingsActivity : AppCompatActivity() {
     }
 }
 
-@Suppress("unused")
 class SettingsFragment : AbstractPreferenceFragment() {
 
     override fun onCreatePreferences(
