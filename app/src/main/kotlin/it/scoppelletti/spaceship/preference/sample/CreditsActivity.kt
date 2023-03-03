@@ -1,10 +1,7 @@
-@file:Suppress("JoinDeclarationAndAssignment")
-
 package it.scoppelletti.spaceship.preference.sample
 
 import android.os.Bundle
 import android.view.MenuItem
-import androidx.appcompat.app.ActionBar
 import androidx.appcompat.app.AppCompatActivity
 import it.scoppelletti.spaceship.app.tryFinish
 import it.scoppelletti.spaceship.html.app.HtmlViewFragment
@@ -15,15 +12,13 @@ class CreditsActivity : AppCompatActivity() {
     private lateinit var binding: CreditsActivityBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
-        val actionBar: ActionBar
-
         super.onCreate(savedInstanceState)
 
         binding = CreditsActivityBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
         setSupportActionBar(binding.toolbar)
-        actionBar = supportActionBar!!
+        val actionBar = supportActionBar!!
         actionBar.setDisplayHomeAsUpEnabled(true)
 
         supportFragmentManager.beginTransaction()

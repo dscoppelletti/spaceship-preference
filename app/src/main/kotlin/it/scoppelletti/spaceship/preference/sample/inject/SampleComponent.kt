@@ -1,5 +1,3 @@
-@file:Suppress("unused")
-
 package it.scoppelletti.spaceship.preference.sample.inject
 
 import android.app.Application

@@ -1,12 +1,9 @@
-@file:Suppress("JoinDeclarationAndAssignment")
-
 package it.scoppelletti.spaceship.preference.sample
 
 import android.content.Intent
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
-import androidx.appcompat.app.ActionBar
 import androidx.appcompat.app.AppCompatActivity
 import androidx.preference.Preference
 import com.google.android.gms.oss.licenses.OssLicensesMenuActivity
@@ -19,15 +16,13 @@ class SettingsActivity : AppCompatActivity() {
     private lateinit var binding: SettingsActivityBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
-        val actionBar: ActionBar
-
         super.onCreate(savedInstanceState)
 
         binding = SettingsActivityBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
         setSupportActionBar(binding.toolbar)
-        actionBar = supportActionBar!!
+        val actionBar = supportActionBar!!
         actionBar.setDisplayHomeAsUpEnabled(true)
 
         OssLicensesMenuActivity.setActivityTitle(getString(R.string.cmd_oss))
