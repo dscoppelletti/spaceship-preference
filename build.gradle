@@ -3,7 +3,7 @@
 buildscript {
     ext.sdk_min = libs.versions.sdk.min.get() as Integer
     ext.sdk_target = libs.versions.sdk.target.get() as Integer
-    ext.oss_version = '17.0.0'
+    ext.oss_version = '17.0.1'
     ext.oss_plugin_version = '0.10.4'
         // The next versions of the plug-in provides licenses info only for
         // release build variants.
